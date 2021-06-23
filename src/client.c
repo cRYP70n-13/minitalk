@@ -1,6 +1,6 @@
 #include "minitalk.h"
 
-const WAITNG_TIME = 180;
+const int WAITNG_TIME = 180;
 
 int		ft_atoi(const char *str)
 {
@@ -38,7 +38,7 @@ int 	main(int argc, char const *argv[])
 		i = -1;
 		while (++i < 8 && (usleep(WAITNG_TIME) || 1))
 		{
-			if (bit(argv[2][j] >> i) & 1)
+			if ((argv[2][j] >> i) & 1)
 				ret = kill(server_process_id, SIGUSR1);
 			else
 				ret = kill(server_process_id, SIGUSR2);
